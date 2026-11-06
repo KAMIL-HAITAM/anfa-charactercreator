@@ -1,7 +1,7 @@
-# staged deploy site + tarball (deploy.ps1)
+# Staged deploy site and all generated build assets (includes ~546 MB MakeHuman asset pack)
 build/
 
-# Blender scratch / backups (scratch normally lives outside the repo, in <scratch>)
+# Blender scratch / backups
 *.blend
 *.blend1
 *.blend2
@@ -20,8 +20,27 @@ desktop.ini
 .vscode/
 *.log
 
-# Deploy tooling and local agent notes: contain machine paths / server details, kept out of the repo
+# Deploy tooling and local agent notes: contain machine paths / server details
 deploy.ps1
 deploy.htaccess
 AGENTS.local.md
 web/data/
+
+# Local secrets / credentials (commit only intentionally sanitised example templates)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*.json
+secrets*.json
+
+# Installer not required in version control; MPFB is installed in Blender already
+/mpfb.zip
+
+# Disposable generated prototypes/backups; keep only explicitly chosen current outputs
+/output/*.pre*.glb
+/output/*.pre*.json
